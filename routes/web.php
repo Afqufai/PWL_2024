@@ -14,5 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Selamat Datang";
+});
+
+Route::get('/hello', function(){
+    return 'Hello World';
+});
+
+Route::get('/world', function(){
+    return 'World';
+});
+
+Route::get('/about', function(){
+    $nama = "Afrizal Qurratul Faizin";
+    $nim = "2341720083";
+    return 'Nama: ' . (string) $nama . '<>NIM: ' . $nim;
+});
+
+Route::get('/user/{name}', function($name){
+    return 'Nama saya ' . (string) $name;
+});
+
+Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+    return 'Pos ke-' . $postId . ' Komentar ke-' . $commentId;
+});
+
+Route::get('/articles/{id}', function ($id) {
+    return (string) 'Halaman Artikel dengan  ID ' . $id;
+});
+
+Route::get('/user/{name?}', function($name='John'){
+    return 'Nama saya ' . $name;
 });
